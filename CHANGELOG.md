@@ -31,3 +31,8 @@ You should also add project tags for each release in Github, see [Managing relea
 - Sample text data from Project Gutenberg
 - Data Version Control stage for the corpus_counter_script.py
 - A sample Jupyter notebook that plots most frequent words the Gutenberg data
+
+## [3.0.0] - 2022-05-30
+### Added
+- Added a function that removes stop words from the corpus (currently implemented as removing words from a given document and not integrated into the functional CorpusCounter).
+- Added a test case to test if the stop words are removed.

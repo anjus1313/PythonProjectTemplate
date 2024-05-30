@@ -103,3 +103,31 @@ def test_corpus_counter_save_csv(tmp_path):
     assert my_csv.is_file()
     expected_csv = "token,count\na,2\nb,1\nc,1\nx,1\ny,1\nz,1\n"
     assert my_csv.read_text() == expected_csv
+
+
+def test_stop_word_removal():
+    my_document = "It was all very well to say `Drink me,' but the wise little Alice was not going to do that in a hurry."
+
+    expected_tokens = [
+        "was",
+        "all",
+        "very",
+        "well",
+        "say",
+        "`Drink",
+        "me,'",
+        "but",
+        "wise",
+        "little",
+        "Alice",
+        "was",
+        "not",
+        "going",
+        "do",
+        "hurry.",
+    ]
+
+    stop_words = ['the', 'and', 'a', 'to', 'of', 'in', 'is', 'that', 'it', 'on']
+    tokens = word_count.tokenize(my_document)
+
+    assert word_count.remove_stop_words(stop_words, tokens) == expected_tokens
