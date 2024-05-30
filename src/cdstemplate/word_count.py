@@ -27,6 +27,12 @@ def tokenize(text, pattern=r"\s"):
     logger.debug("%s token(s) found.", len(tokenized))
     return tokenized
 
+def remove_stop_words(stop_words, tokens):
+    """Returns the list of tokens after removing the stop words.
+    """
+    tokens_no_stop_words = [word for word in tokens if word.lower() not in stop_words]
+
+    return tokens_no_stop_words
 
 class CorpusCounter:
     """A simple class object that tracks document and token counts in a corpus.
